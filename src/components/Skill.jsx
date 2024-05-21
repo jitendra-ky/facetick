@@ -4,14 +4,15 @@ this is from skill section
 
 const my_skills = {
     "Hackerrank Python Basic":          "static/images/certificates/hackerrank_python_basic.png",
-    "Python Core Sololearn":            "static/images/certificates/python_core_sololearn.png",
-    "Python Intermediate Sololearn":    "static/images/certificates/python_intermediate_sololearn.png",
+    // "Python Core Sololearn":            "static/images/certificates/python_core_sololearn.png",
+    // "Python Intermediate Sololearn":    "static/images/certificates/python_intermediate_sololearn.png",
     "Data Structures Python Sololearn": "static/images/certificates/DS_python_sololearn.png",
-    "Python for Beginners Sololearn":   "static/images/certificates/python_for_beginners_sololearn.png",
+    "SQL Hackerrank" : "static/images/certificates/sql_hackerrank.png",
+    // "Python for Beginners Sololearn":   "static/images/certificates/python_for_beginners_sololearn.png",
     "Typing Speed":                     "static/images/certificates/typingSpeed.png",
     "HTML Sololearn":                   "static/images/certificates/html_sololearn.jpg",
     "CSS Hackerrank":                   "static/images/certificates/css_hackerrank.png",
-    "JavaScript Sololearn":             "static/images/certificates/js_sololearn.png"
+    "JavaScript Sololearn": "static/images/certificates/js_sololearn.png",
 };
 
 const my_skills_jsx = (<>

@@ -11,7 +11,6 @@ function Banner() {
         <section className="banner2">
             <div className="banner2_img">
                 <img src="static/images/jiten.png" alt="" />
-                <h5>this is images</h5>
             </div>
             <div className="banner_texts">
                 <div className="banner_text1">Hello, I'm</div>

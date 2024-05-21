@@ -5,9 +5,8 @@ this will contail all the details of the footer
 function Footer() {
 
     return (<>
-        <div className="footer">
-            <h3>this is the footer</h3>
-        </div>
+        <div className="container"> <img src="static/icons/smileplease.png" alt="" />
+            <p>www.smileplease.life</p></div>
     </>)
 }
 

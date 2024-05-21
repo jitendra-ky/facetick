@@ -11,9 +11,13 @@ function App() {
       <Header />
       <Banner />
     </header>
-    <Skill />
-    <Projects />
-    <Footer />
+    <main>
+      <Skill />
+      <Projects />
+    </main>
+    <footer>
+      <Footer />
+    </footer>
   </>
   );
 }

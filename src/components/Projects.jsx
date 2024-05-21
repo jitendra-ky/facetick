@@ -3,35 +3,44 @@ this hold the project section
  */
 
 const projects = {
+    /*
     SpyBat: {
-        imgSrc: "static/images/bat.jpg",
+        imgSrc: "static/icons/bat.jpg",
         imgAlt: "boy studying",
         skill: "Python",
         description: "It will suck all of your passwords without even letting you know.",
         codeLink: "code/spy_bat.html"
     },
     RevisionPredictor: {
-        imgSrc: "static/images/revision.jpg",
+        imgSrc: "static/icons/revision.jpg",
         imgAlt: "boy studying",
         skill: "Python",
         description: "Ohh! God what a masterpiece I create. Isn't this proof that I am smart? Ok! Ok! Ok! Back on topic. This application loses a big burden over my head about what I have to revise and when to keep my concept clear.",
         codeLink: "code/revision_predictor.html"
     },
+    */
     SmilePleaseLife: {
         imgSrc: "static/icons/smileplease_project.png",
         imgAlt: "boy studying",
-        skill: "HTML CSS JS",
-        description: "Embark on a visual journey through my diverse projects, where each pixel tells a story of passion and proficiency. Among them, find the heart of it all - my portfolio website. It's not just a project; it's a reflection of my dedication to crafting digital experiences.",
-        codeLink: "You are on the same website"
+        skill: "React.JS",
+        description: "My portfolio website showcases a diverse range of projects, highlighting my skills and dedication to crafting exceptional digital experiences."
     },
     SharkToDo: {
-        imgSrc: "static/icons/sharktodo.svg",
+        imgSrc: "static/icons/sharktodo.png",
         imgAlt: "boy studying",
-        skill: "Full Stack Project",
-        description: "Effortlessly manage tasks in your personal oasis. Join SmilePlease.Life for exclusive access to SharkToDo's secure, tailored task management.",
-        codeLink: "sharktodo.html"
+        skill: "React.JS + Django.PY",
+        description: "SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.",
+        codeLink: "https://www.smileplease.life/sharktodo.html"
+    },
+    TicTakToe: {
+        imgSrc: "static/icons/tictaktoe.png",
+        imgAlt: "boy studying",
+        skill: "React.JS",
+        description: "A simple Tic-Tak-Toe game with some interesting features.",
+        codeLink: "https://tictaktoe.smileplease.life"
     }
 };
+
 
 const projects_jsx = (<>
     {Object.entries(projects).map(([key, value], index) => (
@@ -40,12 +49,12 @@ const projects_jsx = (<>
             <div className="card_body">
                 <div className="card_body_top">
                     <h5>{ value.skill}</h5>
-                    <h1>SpyBat</h1>
+                    <h1>{key}</h1>
                 </div>
                 <p>{value.description}</p>
             </div>
             <div className="card_footer">
-                <a href={value.codeLink}><i className="fa-solid fa-code"></i>code</a>
+                <a href={value.codeLink}><i className="fa-solid fa-code"></i>ckeck it:)</a>
             </div>
         </div>
     ))}

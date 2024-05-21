@@ -6,7 +6,7 @@ function Navbar() {
         <div className="navbar_container">
             <ul className="nav_left">
                 <li className="branding"><a href="index.html">
-                    <img src="static/images/jiten.png" alt="" className="logo" />
+                    <img src="static/images/jiten100.png" alt="" className="logo" />
                     <p>SmilePlease.Life</p>
                 </a>
                 </li>

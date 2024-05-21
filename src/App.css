@@ -8,6 +8,7 @@
 body {
   background-color: #252020;
   margin-top: 50px;
+  overflow-x: hidden;
 }
 
 .navbar_container {
@@ -118,33 +119,9 @@ li>a:hover {
   }
 }
 
-.banner {
-  width: 100%;
-  /* border: thin solid red; */
-  display: flex;
-  justify-content: center;
-}
-
-
-
-.banner_img {
-  max-width: 2600px;
-
-  overflow: hidden;
-  border-radius: 20px;
-}
-
 .banner2 {
-  /* max-width: 2000px; */
-  /* border: thin solid red; */
-  /* height: 500px; */
-  padding-top: 100px;
-  padding-bottom: 100px;
-  /* height: 100vh; */
-  /* margin: 10px auto; */
-  /* padding: 10px; */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 0 20px white; */
+  padding-top: 50px;
+  padding-bottom: 50px;
   background-color: rgb(18, 18, 18);
   overflow: hidden;
   position: relative;
@@ -155,22 +132,6 @@ li>a:hover {
   color: white;
   /* z-index: -2; */
 }
-
-.viddiv {
-  position: absolute;
-  width: 100%;
-  z-index: -1;
-}
-
-.viddiv>video {
-  width: 100%;
-}
-
-
-
-
-
-
 
 .banner2_img {
   /* border: thin solid red; */
@@ -293,15 +254,18 @@ li>a:hover {
 
   .banner2 {
     flex-direction: column;
-    height: 110vh;
+    /* height: 110vh; */
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .banner_text2 {
     font-size: 40px;
   }
 
-  .viddiv {
-    display: none;
+  .banner2 img,
+  .banner2_img {
+    height: 300px;
   }
 
 }

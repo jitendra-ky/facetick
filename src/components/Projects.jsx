@@ -30,7 +30,7 @@ const projects = {
         imgAlt: "boy studying",
         skill: "React.JS + Django.PY",
         description: "SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.",
-        codeLink: "https://todo.smileplease.life"
+        codeLink: "https://jitendra-ky.notion.site/SharkToDo-66ff51e3c830493b9a7bceadc788d1c0"
     },
     TicTakToe: {
         imgSrc: "static/icons/tictaktoe.png",

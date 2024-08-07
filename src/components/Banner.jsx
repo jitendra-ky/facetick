@@ -8,7 +8,6 @@ const banner_text = {
     'banner_text3': <>studying at <b>IET Lucknow (CSE AI)</b></>,
     'banner_text4': "a passionate coding enthusiast on an exciting journey of learning and self-discovery. With an insatiable love for unraveling the intricacies of programming mastering the art of coding but also unlocking a myriad of skills along the way.",
 };
-
 const banner_text_jsx = <>
     {Object.entries(banner_text).map(([key, value], index) => (
         <div key={index} className={key}>{value}</div>

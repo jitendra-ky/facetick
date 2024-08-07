@@ -44,7 +44,9 @@ const projects = {
 
 const projects_jsx = (<>
     {Object.entries(projects).map(([key, value], index) => (
-        <div className="card_container">
+        // this card_container will rediret to url value.codeLink on click
+        
+        <div className="card_container" onClick={() => window.location.href = value.codeLink}>
             <img src={value.imgSrc} alt={value.imgAlt} className="card_img" />
             <div className="card_body">
                 <div className="card_body_top">
@@ -53,9 +55,9 @@ const projects_jsx = (<>
                 </div>
                 <p>{value.description}</p>
             </div>
-            <div className="card_footer">
+            {/* <div className="card_footer">
                 <a href={value.codeLink}><i className="fa-solid fa-code"></i>ckeck it:)</a>
-            </div>
+            </div> */}
         </div>
     ))}
 </>)

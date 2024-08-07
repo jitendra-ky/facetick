@@ -57,24 +57,24 @@ body {
   color: purple;
 }
 
-ul {
+.banner2 ul {
   list-style-type: none;
   display: flex;
 }
 
-ul li {
+.banner2 ul li {
   padding: 0 10px;
 }
 
 
-ul a {
+.banner2 ul a {
   color: white;
   text-decoration: none;
   font-size: 30px;
   transition: 0.5s;
 }
 
-li>a:hover {
+.banner2 li>a:hover {
   color: red;
 }
 
@@ -319,6 +319,11 @@ section {
   /* box-shadow: 0 0 20px black; */
   margin-top: 20px;
 }
+.certificates .divider {
+  border: thin solid white;
+  width: 80%;
+  margin-bottom: 10px;
+}
 
 .certificates>h1 {
   text-transform: uppercase;
@@ -331,6 +336,7 @@ section {
 .certificates>p {
   font-size: 20px;
   margin: 10px;
+  margin-top: 30px;
   text-align: center;
 }
 
@@ -340,33 +346,54 @@ section {
   flex-wrap: wrap;
 }
 
-.certificates_container>div {
-  background-color: grey;
-  border: 1px solid black;
+.certificates_container .card {
+  /* border: thin solid black; */
+  box-shadow: -10px 10px 20px black;
+  width: 200px;
+  height: 250px;
   border-radius: 20px;
-  /* box-shadow: 0 0 40px black, 0 0 10px white; */
-  height: 210px;
-  width: 300px;
-  margin: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 50px;
-  transition: 1s;
+  padding: 10px;
   overflow: hidden;
-
-}
-
-.certificates_container>div:hover {
-  transform: scale(1.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(74, 74, 74);
+  text-align: center;
+  margin: 10px;
   cursor: pointer;
+  scale: 1;
+  transition: 0.5s;
+}
+.certificates_container .card:hover {
+  /* border: thin solid white; */
+  /* transform: scale(1.05); */
+  translate: 0 -15px;
 }
 
-.certificate_img>img {
+.certificates_container .card .card-body {
   width: 100%;
+  /* border: thin solid white; */
 }
 
+.certificates_container .card img {
+  width: 100px;
+}
 
+.certificates_container .card .divider {
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  border: thin solid white;
+  margin: 5px 0px;
+}
+
+.certificates_container ul {
+  list-style-type: none;
+  /* border: thin solid white; */
+  text-align: left;
+  font-size: small;
+}
 
 
 
@@ -381,7 +408,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #182431;
+  background-color: #3a3a3a;
   /* margin-top: 20px;
 	margin-bottom: 20px; */
 }
@@ -402,74 +429,6 @@ section {
   padding: 10px;
 }
 
-.certificates .view_certificate {
-  background-color: rgba(128, 128, 128, 0.3);
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  /* opacity: 0.3; */
-  z-index: 11;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  display: none;
-  /* transition: 1s;
-	transform: scale(1.6); */
-}
-
-.certificates .view_certificate>div {
-  /* height: auto; */
-  max-width: 700px;
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 10px;
-  overflow: hidden;
-}
-
-.certificates .view_certificate>div .certificate_header {
-  background-color: purple;
-  width: 100%;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.certificates .view_certificate>div .certificate_header>.chclose {
-  height: 100%;
-  width: 40px;
-  /* background-color: red; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
-  display: none;
-}
-
-.certificates .view_certificate>div .certificate_header>.chclose:hover {
-  cursor: pointer;
-  background-color: red;
-}
-
-.certificates .view_certificate>div .certificate_main {
-  background-color: rgb(77, 76, 77);
-  width: 100%;
-  height: 100%;
-}
-
-.certificate_main #certificate_main_img {
-  width: 100%;
-}
-
-.certificates .view_certificate>div .certificate_footer {
-  background-color: purple;
-  width: 100%;
-  height: 50px;
-  display: none;
-}
 
 
 
@@ -491,7 +450,7 @@ section {
   width: 300px;
   margin: 10px;
   /*width height ration 3:5*/
-  height: 500px;
+  height: 485.4px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -501,7 +460,8 @@ section {
   border-radius: 20px;
   box-shadow: 0px 0px 20px black;
   transition: 0.5s;
-  transform: scale(0.9);
+  transform: scale(0.8);
+  cursor: pointer;
 }
 
 .card_container:hover {
@@ -510,7 +470,8 @@ section {
     height: 515px; */
   /* transform: scale(1.05); */
   /* cursor: pointer; */
-  outline: thick solid black;
+  translate: 0 -20px;
+  box-shadow: 20px 30px 20px black;
 
   /* Add box shadow on hover */
 }

@@ -1,0 +1,74 @@
+header * {
+    /* border: thin solid rgba(0, 0, 0, 0.5); */
+}
+
+header {
+    /* border: thin solid black; */
+}
+
+.App-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.App-header .container {
+    height: 50px;
+    max-width: 1200px;
+    flex-grow: 1;
+    margin: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon {
+    height: 40px;
+    width: 40px;
+    background-color: #cfc8c8;
+    border-radius: 50%;
+}
+
+
+
+.App-header .left {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+.App-header .left>div {
+    margin: 2px;
+}
+
+.App-header .left .main-logo {
+    height: 50px;
+    width: 50px;
+    background-color: #b4a6a6;
+    border-radius: 50%;
+}
+
+
+
+.App-header .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+}
+.App-header .center>div {
+    margin: 2px;
+    padding: 0px 20px;
+}
+
+
+
+.App-header .right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: medium;
+}
+.App-header .right>div {
+    margin: 2px;
+}

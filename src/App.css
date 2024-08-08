@@ -3,8 +3,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  border: thin solid black;
-  text-align: center;
+  /* border: thin solid rgba(255, 255, 255, 0.05); */
+  color: white;
 }
 
 

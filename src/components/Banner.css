@@ -1,0 +1,137 @@
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    border: thin solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+
+.banner {
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.banner>div {
+    margin: 2px;
+}
+
+.banner-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    position: relative;
+}
+
+.banner-txt {
+    height: 400px;
+    width: 500px;
+    position: relative;
+    left: 0px;
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+/* Image area styles */
+.banner .holder {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px
+}
+
+.banner .holder .image {
+    height: 300px;
+    width: 300px;
+    /* border-radius: 50%; */
+}
+
+.banner .holder .image img {
+    /* align at the center */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -62.5%);
+    width: 300px;
+    border: none;
+}
+
+
+.banner .lavitate {
+    animation: lavitate 2s infinite;
+    height: 100px;
+    width: 161.8px;
+    position: absolute;
+    transform: translate(-150px, 50px);
+    border-radius: 10px;
+    transition: 0.1s;
+
+}
+
+@keyframes lavitate {
+    0% {
+        transform: translate(-150px, 50px);
+    }
+
+    50% {
+        transform: translate(-150px, 70px);
+    }
+
+    100% {
+        transform: translate(-150px, 50px);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* test area style */
+.txt-holder {
+    position: absolute;
+    left: 20px;
+    width: 400px;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+
+.txt-holder>div {
+    padding: 10px 0px;
+}
+
+.txt-holder .hi {
+    font-size: medium;
+}
+
+.txt-holder .name {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.txt-holder .edu {
+    font-size: large;
+}
+
+.txt-holder .desc {
+    font-size: small;
+}
+
+
+@media (max-width: 800px) {
+    .banner {
+        transform: scale(0.7);
+    }
+}

@@ -1,5 +1,8 @@
 import './Header.css';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faSeedling } from '@fortawesome/free-solid-svg-icons';
+
 
 function Header(props) {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +20,7 @@ function Header(props) {
     const output = (
         <header className="container">
             <div className="left">
-                <div className="main-logo"></div>
+                <div className="main-logo"><FontAwesomeIcon icon={faSeedling} className="icon-style" /></div>
                 <div className="branding">jitendra.me</div>
             </div>
             <div className="center">

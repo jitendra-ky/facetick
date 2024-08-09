@@ -2,7 +2,7 @@ import './Header.css';
 import { useState } from 'react';
 
 function Header(props) {
-    const [menuOpen, setMenuOpen] = useState(true);
+    const [menuOpen, setMenuOpen] = useState(false);
 
     // here is the toggle function
     const toggleMenu = () => {

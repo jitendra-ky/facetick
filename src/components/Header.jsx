@@ -1,7 +1,7 @@
 import './Header.css';
 import { useState } from 'react';
 
-function Header() {
+function Header(props) {
     const [menuOpen, setMenuOpen] = useState(true);
 
     // here is the toggle function
@@ -21,7 +21,7 @@ function Header() {
                 <div className="branding">jitendra.me</div>
             </div>
             <div className="center">
-                <div className="one">one</div>
+                <div className="one" onClick={() => props.scrollIntoView('sample')}>one</div>
                 <div className="two">two</div>
                 <div className="three">three</div>
             </div>

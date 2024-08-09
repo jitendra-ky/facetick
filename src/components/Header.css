@@ -59,6 +59,7 @@ header {
 .App-header .center>div {
     margin: 2px;
     padding: 0px 20px;
+    cursor: pointer;
 }
 
 

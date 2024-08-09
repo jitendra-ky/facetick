@@ -4,6 +4,10 @@ import Banner from './components/Banner';
 import Background from './components/Background';
 import Header from './components/Header';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+
+
 function App() {
 
   const scrollToSection = (id) => {
@@ -27,7 +31,9 @@ function App() {
       <footer id='sample'>
         Footer
       </footer>
-      <div className='back-to-top' onClick={() => scrollToSection('header')}>🔝</div>
+      <div className='back-to-top' onClick={() => scrollToSection('header')}>
+        <FontAwesomeIcon icon={faArrowUp} />
+      </div>
     </div>
   </>);
 }

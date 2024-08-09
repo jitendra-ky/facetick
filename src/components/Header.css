@@ -11,6 +11,7 @@ header {
     justify-content: center;
     align-items: center;
     height: 100px;
+    user-select: none;/* Prevents text selection */
 }
 
 .App-header .container {
@@ -37,6 +38,7 @@ header {
     align-items: center;
     font-size: x-large;
 }
+
 .App-header .left>div {
     margin: 2px;
 }
@@ -50,12 +52,13 @@ header {
 
 
 
-.App-header .center{
+.App-header .center {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: medium;
 }
+
 .App-header .center>div {
     margin: 2px;
     padding: 0px 20px;
@@ -71,6 +74,7 @@ header {
     font-size: medium;
     position: relative;
 }
+
 .App-header .right>div {
     margin: 2px;
 }
@@ -85,6 +89,7 @@ header {
     cursor: pointer;
     transition: 0.1s;
 }
+
 .nav-menu:hover {
     transform: scale(1.1);
 }
@@ -106,6 +111,7 @@ header {
 .nav-menu .one {
     transform: translate(-50%, -50%) translateY(5px) scale(0.7);
 }
+
 .nav-menu .two {
     transform: translate(-50%, -50%) translateY(-5px) scale(0.7);
 }
@@ -138,6 +144,8 @@ header {
     border-radius: 10px;
     overflow: hidden;
     padding-top: 50px;
+    transition: 0.3s;
+    animation: sidebar-open 0.3s;
 }
 
 .sidebar.close {
@@ -148,4 +156,16 @@ header {
     width: 90%;
     height: 250px;
     /* border: thin solid black; */
+}
+
+
+/* here is the animation of sidebar opening */
+@keyframes sidebar-open {
+    0% {
+        width: 0px;
+    }
+
+    100% {
+        width: 200px;
+    }
 }

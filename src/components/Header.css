@@ -68,7 +68,83 @@ header {
     justify-content: flex-end;
     align-items: center;
     font-size: medium;
+    position: relative;
 }
 .App-header .right>div {
     margin: 2px;
+}
+
+.nav-menu {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    transition: 0.1s;
+}
+.nav-menu:hover {
+    transform: scale(1.1);
+}
+
+.nav-menu .line {
+    width: 100%;
+    border: 3px solid rgb(255, 255, 255);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    width: 40px;
+    transition: 0.3s;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+.nav-menu .one {
+    transform: translate(-50%, -50%) translateY(5px) scale(0.7);
+}
+.nav-menu .two {
+    transform: translate(-50%, -50%) translateY(-5px) scale(0.7);
+}
+
+.nav-menu .one.open {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.nav-menu .two.open {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+.sidebar {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    height: 322px;
+    width: 200px;
+    background: rgba(141, 131, 131, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 2;
+    border-radius: 10px;
+    overflow: hidden;
+    padding-top: 50px;
+}
+
+.sidebar.close {
+    display: none;
+}
+
+.sidebar .container {
+    width: 90%;
+    height: 250px;
+    /* border: thin solid black; */
 }

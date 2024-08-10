@@ -1,6 +1,6 @@
 import './Featured.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 function Featured() {
@@ -23,7 +23,7 @@ function Featured() {
                         <li>Received a certificate</li>
                     </ul>
                     <div className="foot">
-                        <div className="btn"><FontAwesomeIcon icon={faCheck}/> Verify</div>
+                        <a href="https://www.hackerrank.com/certificates/945259957510" target="_blank" rel="noopener noreferrer" className="btn">Verify <FontAwesomeIcon icon={faExternalLinkAlt} /></a>
                     </div>
                 </div>
             </div>

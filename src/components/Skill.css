@@ -1,0 +1,22 @@
+.skill-section, .skill-section * {
+    /* border: thin solid black; */
+}
+
+.skill-section .skill-title {
+    margin-bottom: 100px;
+    text-align: center;
+    font-variant-caps: all-petite-caps;
+    font-size: 3em;
+}
+
+.skill-section .skill-body {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.skill-section .skill-item {
+    height: 9.5cm;
+    width: 6cm;
+    margin: 10px;
+    border-radius: 10px;
+}

@@ -45,8 +45,8 @@
     height: 300px;
     width: 300px;
     border-radius: 50%;
-    position: absolute;
-    right: 0px
+    /* position: absolute;
+    right: 0px */
 }
 
 .banner .holder .image {

@@ -4,6 +4,7 @@ import Banner from './components/Banner';
 import Background from './components/Background';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Featured from './components/Featured';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +27,7 @@ function App() {
       </header>
       <main>
         <section><Banner /></section>
+        <section><Featured /></section>
       </main>
       <footer id='sample'>
         <Footer />

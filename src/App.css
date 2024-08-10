@@ -48,3 +48,27 @@ section>.container {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn:hover{
+  background-color: #1c7631;
+}
+
+.tag {
+  background-color: #dcdcdc;
+  color: rgb(0, 0, 0);
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin: 5px;
+  font-size: 12px;
+  margin: 5px;
+}

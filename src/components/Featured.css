@@ -1,4 +1,5 @@
-.featured, .featured * {
+.featured,
+.featured * {
     /* border: thin solid black; */
 }
 
@@ -14,9 +15,9 @@
 
 }
 
-.featured .img-area{
+.featured .img-area {
     height: 6cm;
-    width: 9.66cm;
+    max-width: 9.66cm;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -24,7 +25,8 @@
     overflow: hidden;
     /* transform: scale(1.5); */
 }
-.frontend img{
+
+.frontend img {
     width: 100%;
 }
 
@@ -32,13 +34,15 @@
     display: flex;
 }
 
-.featured .txt-area{
-    height: 6cm;
+.featured .txt-area {
+    /* height: 6cm; */
     /* width: 11.375cm; */
     border-radius: 10px;
     padding: 5px;
 }
-.featured h1, .featured h4 {
+
+.featured h1,
+.featured h4 {
     padding: 5px;
 }
 

@@ -28,6 +28,7 @@ section>.container {
   margin: auto;
   max-width: 1200px;
   padding: 50px 12px;
+  overflow: hidden;
 }
 
 .back-to-top {

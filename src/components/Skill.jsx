@@ -34,7 +34,7 @@ function Skill() {
 
     const output = (
         <div className="container skill-section">
-            <div className="skill-title">Skills</div>
+            <div className="title">Skills</div>
             <div className="skill-body">
                 {skillItems}
             </div>

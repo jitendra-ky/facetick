@@ -11,13 +11,6 @@
     border-radius: 10px;
 }
 
-.skill-section .skill-title {
-    margin-bottom: 100px;
-    text-align: center;
-    font-variant-caps: all-petite-caps;
-    font-size: 3em;
-}
-
 .skill-section .skill-body {
     display: flex;
     flex-direction: column;

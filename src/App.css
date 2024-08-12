@@ -30,6 +30,12 @@ section>.container {
   padding: 50px 12px;
   overflow: hidden;
 }
+section>.container>.title {
+  margin-bottom: 100px;
+  text-align: center;
+  font-variant-caps: all-petite-caps;
+  font-size: 3em;
+}
 
 .back-to-top {
   position: fixed;

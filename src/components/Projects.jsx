@@ -1,11 +1,15 @@
 import './Projects.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
+
+
 const projects = {
-    SmilePleaseLife: {
+    jitendraMe: {
         imgSrc: "static/icons/smileplease_project.png",
         imgAlt: "jitendra protfolio log",
         skill: "React.JS",
-        description: "My portfolio website showcases a diverse range of projects, highlighting my skills and dedication to crafting exceptional digital experiences."
+        description: "My portfolio website showcases a diverse range of projects,highlighting my skills and dedication to crafting exceptional digital experiences."
     },
     SharkToDo: {
         imgSrc: "static/icons/sharktodo.png",
@@ -28,21 +32,21 @@ const projects_jsx = (<>
     {Object.entries(projects).map(([key, value], index) => (
         // this card_container will rediret to url value.codeLink on click
 
-        <div className="card_container">
+        <div className="card_container glass">
             <div className="card-head">
                 <img src={value.imgSrc} alt={value.imgAlt} className="card_img" />
             </div>
-            <div className="card_body">
-                <div className="card_body_top">
+            <div className="card-body">
+                <div className="card-body-top">
                     <div className='tag'>{value.skill}</div>
-                    <div>{key}</div>
+                    <h1>{key}</h1>
                 </div>
                 <p>{value.description}</p>
             </div>
             <div className="card-foot">
-                <div className="btn" onClick={() => window.location.href = value.codeLink}>use</div>
-                <div className="btn" onClick={() => window.location.href = value.codeLink}>video</div>
-                <div className="btn" onClick={() => window.location.href = value.codeLink}>doc</div>
+                <div className="btn" onClick={() => window.location.href = value.codeLink}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+                <div className="btn" onClick={() => window.location.href = value.codeLink}><FontAwesomeIcon icon={faPlay} /> video</div>
+                <div className="btn" onClick={() => window.location.href = value.codeLink}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
             </div>
         </div>
     ))}
@@ -53,12 +57,12 @@ function Projects() {
 
     return (<>
 
-        <section className="projects container">
-            <h1>projects</h1>
+        <div className="projects-section container">
+            <div className='title'>projects</div>
             <div className="projects-body">
                 {projects_jsx}
             </div>
-        </section>
+        </div>
     </>)
 }
 

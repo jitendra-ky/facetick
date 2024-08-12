@@ -27,11 +27,12 @@ function App() {
         <Header scrollIntoView={scrollToSection} />
       </header>
       <main>
-        <section><Banner /></section>
-        <section><Featured /></section>
-        <section><Skill /></section>
+        <section id="banner"><Banner /></section>
+        <section id="featured"><Featured /></section>
+        <section id="skills"><Skill /></section>
+        <section id='projects'></section>
       </main>
-      <footer id='sample'>
+      <footer id='footer'>
         <Footer />
       </footer>
       <div className='back-to-top' onClick={() => scrollToSection('header')}>

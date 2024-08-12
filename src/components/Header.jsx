@@ -24,9 +24,9 @@ function Header(props) {
                 <div className="branding">jitendra.me</div>
             </div>
             <div className="center">
-                <div className="one" onClick={() => props.scrollIntoView('sample')}>one</div>
-                <div className="two">two</div>
-                <div className="three">three</div>
+                <div className="one" onClick={() => props.scrollIntoView('featured')}>fretured</div>
+                <div className="two" onClick={() => props.scrollIntoView('skills')}>skills</div>
+                <div className="two" onClick={() => props.scrollIntoView('projects')}>projects</div>
             </div>
             <div className="right">
                 {/* <div className="one icon"></div>

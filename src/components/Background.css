@@ -14,6 +14,9 @@ of div.glassbg */
     display: flex;
     justify-content: center;
 }
+.glassbg.dark-mode {
+    background: #000;
+}
 
 @keyframes levitate {
     0% {
@@ -37,6 +40,10 @@ of div.glassbg */
     background: rgba(203, 192, 197, 0.5);
     /* animation: levitate 2s 0.1s infinite alternate; */
 }
+.glassbg .color:nth-child(1).dark-mode {
+    background: rgba(4, 35, 241, 0.5);
+}
+
 
 .glassbg .color:nth-child(2) {
     bottom: -150px;

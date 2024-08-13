@@ -11,8 +11,15 @@ import Projects from './components/Projects';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
+import { useState } from 'react';
+
 
 function App() {
+  const [ isDarkMode, setIsDarkMode ] = useState(false);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -22,10 +29,10 @@ function App() {
   };
 
   return (<>
-    <Background />
+    <Background isDarkMode={isDarkMode} />
     <div className="App">
       <header className="App-header" id='header'>
-        <Header scrollIntoView={scrollToSection} />
+        <Header scrollIntoView={scrollToSection} onToggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       </header>
       <main>
         <section id="banner"><Banner /></section>

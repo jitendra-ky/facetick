@@ -5,9 +5,9 @@ import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 
 const projects = {
-    jitendraMe: {
+    Portfolio: {
         imgSrc: "static/icons/smileplease_project.png",
-        imgAlt: "jitendra protfolio log",
+        imgAlt: "jitendra portfolio log",
         skill: "React.JS",
         description: "My portfolio website showcases a diverse range of projects,highlighting my skills and dedication to crafting exceptional digital experiences."
     },

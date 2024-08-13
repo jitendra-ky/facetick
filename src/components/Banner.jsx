@@ -9,7 +9,7 @@ function Banner() {
             <img src="jiten.png" alt="jitendra" />
           </div>
         </div>
-        {/* <div className="lavitate one glass">Python</div> */}
+        {/* <div className="lavitate one glass">Welcome</div> */}
       </div>
       <div className="banner-txt">
         <div className="txt-holder">

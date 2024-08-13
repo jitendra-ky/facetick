@@ -40,7 +40,7 @@ function App() {
         <section id="skills"><Skill /></section>
         <section id='projects'><Projects /></section>
       </main>
-      <footer id='footer'>
+      <footer id='footer' className='footer'>
         <Footer />
       </footer>
       <div className='back-to-top' onClick={() => scrollToSection('header')}>

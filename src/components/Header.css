@@ -17,7 +17,7 @@ header {
     z-index:2;
 }
 
-.App-header .container {
+.App-header>.container {
     height: 50px;
     max-width: 1200px;
     flex-grow: 1;
@@ -190,6 +190,21 @@ header {
     width: 90%;
     height: 250px;
     /* border: thin solid black; */
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+    width: 100%;
+    justify-content: flex-start;
+    text-align: center;
+}
+.sidebar .container div {
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 1px;
+}
+.sidebar .container div:hover {
+    background: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 

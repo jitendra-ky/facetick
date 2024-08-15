@@ -44,7 +44,11 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
                     <div className={menuClassDown}></div>
                 </div>
                 <div className={sidebarClass}>
-                    <div className="container"></div>
+                    <div className="container">
+                        <div className="one" onClick={() => scrollIntoView('featured')}>featured</div>
+                        <div className="two" onClick={() => scrollIntoView('skills')}>skills</div>
+                        <div className="two" onClick={() => scrollIntoView('projects')}>projects</div>
+                    </div>
                 </div>
             </div>
         </header>

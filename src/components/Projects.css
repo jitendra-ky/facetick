@@ -26,6 +26,10 @@
 
 .projects-body .card-head {
     width: 4cm;
+    height: 4cm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .projects-body img {
     width: 100%;

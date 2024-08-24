@@ -1,6 +1,7 @@
 import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 const portfolio = (
     <div className="card_container glass">
@@ -62,6 +63,26 @@ const tictaktoe = (
     </div>
 );
 
+const careerCraftCard = (
+    <div className="card_container glass">
+        <div className="card-head">
+            <img src="static/icons/careercraft.png" alt="CareerCraft logo" className="card_img" />
+        </div>
+        <div className="card-body">
+            <div className="card-body-top">
+                <div className='tag'>Streamlit | Python</div>
+                <div className='tag'>Open-Source</div>
+                <h1>CareerCraft</h1>
+            </div>
+            <p>CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications.</p>
+        </div>
+        <div className="card-foot">
+            <div className="btn" onClick={() => window.open("https://career-craft.streamlit.app")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://github.com/zsquare12/ats-optimized-resume")}>repo <FontAwesomeIcon icon={faGithub} /></div>
+        </div>
+    </div>
+);
+
 function Projects() {
     return (
         <div className="projects-section container">
@@ -70,6 +91,7 @@ function Projects() {
                 {portfolio}
                 {sharktodo}
                 {tictaktoe}
+                {careerCraftCard}
             </div>
         </div>
     );

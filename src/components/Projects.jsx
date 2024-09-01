@@ -77,7 +77,7 @@ const careerCraftCard = (
             <p>CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications.</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://career-craft.streamlit.app")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
             <div className="btn" onClick={() => window.open("https://github.com/zsquare12/ats-optimized-resume")}>repo <FontAwesomeIcon icon={faGithub} /></div>
         </div>
     </div>

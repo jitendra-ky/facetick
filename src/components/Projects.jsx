@@ -79,6 +79,7 @@ const careerCraftCard = (
         <div className="card-foot">
             <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
             <div className="btn" onClick={() => window.open("https://github.com/zsquare12/ats-optimized-resume")}>repo <FontAwesomeIcon icon={faGithub} /></div>
+            <div className="btn" onClick={() => window.open("https://youtu.be/-C5RDNQNT1c?si=bFBaWwzr0Be7fCnd")}><FontAwesomeIcon icon={faPlay} /> video</div>
         </div>
     </div>
 );

@@ -6,7 +6,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 const portfolio = (
     <div className="card_container glass">
         <div className="card-head">
-            <img src="static/icons/smileplease_project.png" alt="jitendra portfolio log" className="card_img" />
+            <img src="static/icons/portfolio_website.png" alt="jitendra portfolio log" className="card_img" />
         </div>
         <div className="card-body">
             <div className="card-body-top">

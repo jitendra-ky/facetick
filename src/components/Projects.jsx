@@ -26,7 +26,7 @@ const portfolio = (
 const sharktodo = (
     <div className="card_container glass">
         <div className="card-head">
-            <img src="static/icons/sharktodo.png" alt="sharktodo logo" className="card_img" />
+            <img src="static/icons/sharktodo2.png" alt="sharktodo logo" className="card_img" />
         </div>
         <div className="card-body">
             <div className="card-body-top">
@@ -46,7 +46,7 @@ const sharktodo = (
 const tictaktoe = (
     <div className="card_container glass">
         <div className="card-head">
-            <img src="static/icons/tictaktoe.png" alt="tic-tak-toe logo" className="card_img" />
+            <img src="static/icons/tictaktoe2.png" alt="tic-tak-toe logo" className="card_img" />
         </div>
         <div className="card-body">
             <div className="card-body-top">

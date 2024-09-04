@@ -3,9 +3,11 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSeedling, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
     const [menuOpen, setMenuOpen] = useState(false);
-    const [darkModeIcon, setDarkModeIcon] = useState(faSun); // Initial icon based on light mode
+    const [darkModeIcon, setDarkModeIcon] = useState("sun"); // Initial icon based on light mode
 
     // Toggle function for the menu
     const toggleMenu = () => {
@@ -14,7 +16,7 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
 
     // Update icon based on the current dark mode state
     useEffect(() => {
-        setDarkModeIcon(isDarkMode ? faSun : faMoon);
+        setDarkModeIcon(isDarkMode ? "sun" : "moon-stars");
     }, [isDarkMode]);
 
     const menuClassUp = menuOpen ? 'line one open' : 'line one';
@@ -37,7 +39,7 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
             <div className="right">
                 {/* <div className="one icon"></div> */}
                 <div className="two icon mode-change" onClick={onToggleDarkMode}>
-                    <FontAwesomeIcon icon={darkModeIcon} className="icon-style" />
+                    <i className={`bi bi-${darkModeIcon} h1`}></i>
                 </div>
                 <div className="three nav-menu" onClick={toggleMenu}>
                     <div className={menuClassUp}></div>

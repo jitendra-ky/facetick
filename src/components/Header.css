@@ -1,6 +1,6 @@
-header * {
-    /* border: thin solid rgba(0, 0, 0, 0.5); */
-}
+/* header * {
+    border: thin solid white;
+} */
 
 header {
     /* border: thin solid black; */
@@ -103,8 +103,20 @@ header {
     justify-content: center;
     align-items: center;
     background:none;
-    font-size: 2em;
-    padding-right: 10px;
+    font-size: 1.5em;
+    margin-right: 10px;
+    height: 40px;
+    width: 40px;
+}
+.App-header .right .mode-change> i {
+    height: 10px;
+    width: 10px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.App-header .right .mode-change:hover {
+    background-color: rgb(62, 60, 60, 0.5);
 }
 .App-header .right .mode-change:hover {
     /* transform: scale(1.1); */

@@ -132,6 +132,7 @@ header {
     z-index: 3;
     cursor: pointer;
     transition: 0.1s;
+    transform: scale(0.8);
 }
 
 .nav-menu:hover {

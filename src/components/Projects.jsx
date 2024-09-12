@@ -31,7 +31,7 @@ const sharktodo = (
         <div className="card-body">
             <div className="card-body-top">
                 <div className='tag'>React.JS + Django.PY</div>
-                <h1>SharkToDo</h1>
+                <h1>SharkToDo this is ayush change magic</h1>
             </div>
             <p>SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.</p>
         </div>

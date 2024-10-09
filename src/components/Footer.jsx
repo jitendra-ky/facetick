@@ -19,7 +19,7 @@ function Footer() {
                         <a href="https://www.linkedin.com/in/jitendra-kumar-6aba46210/" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faLinkedin} />
                         </a>
-                        <a href="https://github.com/zsquare12" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/jitendra-ky" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faGithub} />
                         </a>
                         <a href="https://twitter.com/Jiten_69854" target="_blank" rel="noopener noreferrer">

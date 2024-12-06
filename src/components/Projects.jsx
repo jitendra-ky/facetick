@@ -36,7 +36,7 @@ const sharktodo = (
             <p>SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://todo.smileplease.life")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://todo.jitendra.me")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
             <div className="btn" onClick={() => window.open("https://youtu.be/rb3MPeSYs4Q?si=0V2sHXaV9bezVHyp")}><FontAwesomeIcon icon={faPlay} /> video</div>
             <div className="btn" onClick={() => window.open("https://jitendra-ky.notion.site/SharkToDo-66ff51e3c830493b9a7bceadc788d1c0")}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
         </div>
@@ -56,7 +56,7 @@ const tictaktoe = (
             <p>A simple Tic-Tak-Toe game with some interesting features.</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://tictaktoe.smileplease.life")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://tictaktoe.jitendra.me")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
             <div className="btn" onClick={() => window.open("https://youtu.be/69ikkkNZd9Y?si=z7rzu7fIS3QgC_5f")}><FontAwesomeIcon icon={faPlay} /> video</div>
             <div className="btn" onClick={() => window.open()} style={{ visibility: "hidden" }}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
         </div>

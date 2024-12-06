@@ -4,6 +4,12 @@
 }
 
 
+@media screen and (min-width: 800px) {
+    .skill-item-parent {
+        width: 800px;
+    }
+}
+
 .skill-item-parent {
     padding: 5px;
     display: flex;
@@ -74,7 +80,7 @@
 
 
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     .skill-item-parent {
         flex-direction: column;
         align-items: center;

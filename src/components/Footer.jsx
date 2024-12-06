@@ -35,9 +35,9 @@ function Footer() {
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="https://darkcloud.jitendra.me/">DarkCloud</a></li>
-                        <li><a href="https://todo.smileplease.life/">SharkToDo</a></li>
-                        <li><a href="https://tictaktoe.smileplease.life/">TicTakToe</a></li>
-                        <li><a href="https://smileplease.life/" target="_blank" rel="noopener noreferrer">smileplease.life</a></li>
+                        <li><a href="https://todo.jitendra.me/">SharkToDo</a></li>
+                        <li><a href="https://tictaktoe.jitendra.me/">TicTakToe</a></li>
+                        <li><a href="https://jitendra.me/" target="_blank" rel="noopener noreferrer">jitendra.me</a></li>
                     </ul>
                 </div>
             </div>

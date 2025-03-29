@@ -3,6 +3,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
+const dragonfly = (
+    <div className="card_container glass">
+        <div className="card-head">
+            <img src="static/icons/dragonfly-icon-200.png" alt="jitendra portfolio log" className="card_img" />
+        </div>
+        <div className="card-body">
+            <div className="card-body-top">
+                <div className='tag'>web-app | </div>
+                <h1>Dragonfly</h1>
+            </div>
+            <p>In this project Dragonfly, I am developing a fully functional open-source chatting application using industry best practices</p>
+        </div>
+        <div className="card-foot">
+            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}>repo <FontAwesomeIcon icon={faGithub} /></div>
+        </div>
+    </div>
+);
+
 const portfolio = (
     <div className="card_container glass">
         <div className="card-head">
@@ -89,6 +107,7 @@ function Projects() {
         <div className="projects-section container">
             <div className='title'>projects</div>
             <div className="projects-body">
+                {dragonfly}
                 {portfolio}
                 {sharktodo}
                 {tictaktoe}

@@ -80,6 +80,24 @@ section>.container>.title {
   font-size: 12px;
   margin: 5px;
 }
+.tag-primary {
+  background-color: #85c0ff;
+}
+.tag-secondary {
+  background-color: #6c757d;
+}
+.tag-success {
+  background-color: #58a96b;
+}
+.tag-danger {
+  background-color: #da727d;
+}
+.tag-warning {
+  background-color: #fddf86;
+}
+.tag-info {
+  background-color: #62b4c1;
+}
 
 .glass {
   background: rgba(255, 255, 255, 0.1);

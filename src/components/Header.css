@@ -91,7 +91,6 @@ header {
     justify-content: flex-end;
     align-items: center;
     font-size: medium;
-    position: relative;
 }
 
 .App-header .right>div {
@@ -181,18 +180,19 @@ header {
 
 .sidebar {
     position: absolute;
-    top: -5px;
-    right: -5px;
+    top: 48px;
+    right: 10px;
     height: 322px;
     width: 200px;
-    background: rgba(141, 131, 131, 0.5);
+    background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
     z-index: 2;
-    border-radius: 10px;
+    border-radius:  0px 0px 10px 10px;
     overflow: hidden;
-    padding-top: 50px;
+    padding-top: 10px;
     transition: 0.1s;
     animation: sidebar-open 0.1s;
+    border-top: thin solid white;
 }
 
 .sidebar.close {
@@ -212,7 +212,7 @@ header {
 }
 .sidebar .container div {
     padding: 5px;
-    background: rgba(0, 0, 0, 0.5);
+    border-bottom: thin solid white;
     margin-bottom: 1px;
 }
 .sidebar .container div:hover {

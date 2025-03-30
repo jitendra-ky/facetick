@@ -64,6 +64,11 @@
     text-decoration: underline;
 }
 
+.social-icons {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
 .social-icons a {
     color: #ecf0f1;
     margin: 0 10px;

@@ -2,6 +2,7 @@ import './Header.css';
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faSeedling, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import { faLinkedin, faGithub, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -46,6 +47,20 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
                     <div className={menuClassDown}></div>
                 </div>
                 <div className={sidebarClass}>
+                    <div className="social-icons">
+                        <a href="https://www.linkedin.com/in/jitendra-kumar-6aba46210/" target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faLinkedin} />
+                        </a>
+                        <a href="https://github.com/jitendra-ky" target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faGithub} />
+                        </a>
+                        <a href="https://twitter.com/Jiten_69854" target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faTwitter} />
+                        </a>
+                        <a href="https://www.instagram.com/jitendra_322003/" target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faInstagram} />
+                        </a>
+                    </div>
                     <div className="container">
                         <div className="one" onClick={() => scrollIntoView('featured')}>featured</div>
                         <div className="two" onClick={() => scrollIntoView('skills')}>skills</div>

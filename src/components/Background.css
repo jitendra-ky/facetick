@@ -1,64 +1,65 @@
 /* this is just a container which contain all backgroud style
 of div.glassbg */
-.glassbg {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-
-    min-height: 100vh;
-    width: 100%;
-
-    background: #05343E;
-    z-index: -1;
-
-    display: flex;
-    justify-content: center;
-}
-.glassbg.dark-mode {
-    background: #000;
-}
 
 @keyframes levitate {
-    0% {
-        transform: translateY(0);
-    }
+  0% {
+    transform: translateY(0);
+  }
 
-    100% {
-        transform: translateY(-100px);
-    }
+  100% {
+    transform: translateY(-100px);
+  }
 }
 
-.glassbg .color {
+.glassbg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+
+  min-height: 100vh;
+  width: 100%;
+
+  background: #05343e;
+  z-index: -1;
+
+  display: flex;
+  justify-content: center;
+
+  &.dark-mode{
+    background: #000;
+  }
+
+  .color {
     position: absolute;
     filter: blur(150px);
-}
+  }
 
-.glassbg .color:nth-child(1) {
+  .color:nth-child(1) {
     top: -250px;
     height: 600px;
     width: 600px;
     background: rgba(203, 192, 197, 0.5);
     /* animation: levitate 2s 0.1s infinite alternate; */
-}
-.glassbg .color:nth-child(1).dark-mode {
+  }
+  .color:nth-child(1).dark-mode {
     background: rgba(4, 35, 241, 0.5);
-}
+  }
 
-
-.glassbg .color:nth-child(2) {
+  .color:nth-child(2) {
     bottom: -150px;
     left: 100px;
     height: 500px;
     width: 500px;
     background: #fffd87;
     /* animation: levitate 2s 0.4s infinite alternate; */
-}
+  }
 
-.glassbg .color:nth-child(3) {
+  .color:nth-child(3) {
     bottom: 50px;
     right: 100px;
     height: 300px;
     width: 300px;
     background: #00d2ff;
     /* animation: levitate 2s 0.7s infinite alternate; */
+  }
 }

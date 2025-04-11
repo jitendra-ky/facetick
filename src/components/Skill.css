@@ -1,93 +1,70 @@
-.skill-section,
-.skill-section * {
-    /* border: thin solid black; */
-}
-
-
-@media screen and (min-width: 800px) {
-    .skill-item-parent {
-        width: 800px;
-    }
-}
-
-.skill-item-parent {
+.skill-section {
+  .skill-item-parent {
     padding: 5px;
     display: flex;
     max-width: 800px;
     margin: 10px;
     border-radius: 10px;
-}
+  }
 
-.skill-section .skill-body {
+  .skill-body {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+  }
 
-.skill-section .skill-item {
+  .skill-item {
     /* height: 3.71cm; */
     width: 6cm;
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
-}
+  }
 
-
-.skill-section .divider {
+  .divider {
     border: thin solid white;
     border-radius: 10px;
     margin-right: 5px;
-}
+  }
 
-
-.skill-card-title {
+  .skill-card-title {
     text-align: center;
     font-size: 1.2em;
     padding: 5px;
-}
+  }
 
-.skill-card-body ul {
+  .skill-card-body ul {
     list-style-position: inside;
     padding: 5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     list-style-type: none;
-}
+  }
 
-.skill-card-body ul li {
+  .skill-card-body ul li {
     font-size: medium;
-}
+  }
 
-
-
-
-
-
-
-
-
-.skill-section .skill-detail {
+  .skill-detail {
     padding-top: 10px;
     padding-left: 20px;
-
+  }
 }
 
-
-
-
-
-
-
+@media screen and (min-width: 800px) {
+  .skill-item-parent {
+    width: 800px;
+  }
+}
 
 @media screen and (max-width: 600px) {
-    .skill-item-parent {
-        flex-direction: column;
-        align-items: center;
-    }
+  .skill-item-parent {
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .skill-section .divider {
-        width: 100%;
-    }
-
+  .skill-section .divider {
+    width: 100%;
+  }
 }

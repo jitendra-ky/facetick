@@ -7,7 +7,6 @@
   color: white;
 }
 
-
 /* here I write page layout */
 .App {
   min-height: 100vh;
@@ -22,19 +21,19 @@ main {
 
 section {
   padding: 10px;
-}
 
-section>.container {
-  margin: auto;
-  max-width: 1200px;
-  padding: 50px 12px;
-  overflow: hidden;
-}
-section>.container>.title {
-  margin-bottom: 100px;
-  text-align: center;
-  font-variant-caps: all-petite-caps;
-  font-size: 3em;
+  > .container {
+    margin: auto;
+    max-width: 1200px;
+    padding: 50px 12px;
+    overflow: hidden;
+  }
+  > .container > .title {
+    margin-bottom: 100px;
+    text-align: center;
+    font-variant-caps: all-petite-caps;
+    font-size: 3em;
+  }
 }
 
 .back-to-top {
@@ -67,7 +66,7 @@ section>.container>.title {
   transition: background-color 0.3s;
   border: thin solid white;
 }
-.btn:hover{
+.btn:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
@@ -108,3 +107,18 @@ section>.container>.title {
   /* box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.1); */
 }
 
+.social-icons {
+  text-align: center;
+  padding-bottom: 10px;
+
+  a {
+    color: #ecf0f1;
+    margin: 0 10px;
+    font-size: 1.5em;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #3498db;
+    }
+  }
+}

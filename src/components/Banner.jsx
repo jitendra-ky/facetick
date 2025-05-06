@@ -2,7 +2,7 @@ import './Banner.css';
 
 function Banner() {
   return (
-    <div className="container banner">
+    <div className="mycontainer banner">
       <div className="banner-image">
         <div className="holder glass">
           <div className="image">

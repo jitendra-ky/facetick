@@ -113,7 +113,7 @@ const careerCraftCard = (
 
 function Projects() {
     return (
-        <div className="projects-section container">
+        <div className="projects-section mycontainer">
             <div className='title'>projects</div>
             <div className="projects-body">
                 {dragonfly}

@@ -70,7 +70,7 @@ function Skill() {
     ));
 
     const output = (
-        <div className="mycontainer skill-section">
+        <div className="container skill-section">
             <div className="title">Skills</div>
             <div className="skill-body">
                 {skillItems}

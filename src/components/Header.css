@@ -8,7 +8,7 @@
   width: 100%;
   z-index: 2;
 
-  > .mycontainer {
+  > .container {
     height: 50px;
     max-width: 1200px;
     flex-grow: 1;
@@ -171,7 +171,7 @@
       display: none;
     }
 
-    .mycontainer {
+    .container {
       width: 90%;
       height: 250px;
       /* border: thin solid black; */
@@ -182,12 +182,12 @@
       justify-content: flex-start;
       text-align: center;
     }
-    .mycontainer div {
+    .container div {
       padding: 5px;
       border-bottom: thin solid white;
       margin-bottom: 1px;
     }
-    .mycontainer div:hover {
+    .container div:hover {
       background: rgba(0, 0, 0, 0.6);
       cursor: pointer;
     }

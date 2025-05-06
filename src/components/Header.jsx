@@ -25,7 +25,7 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
     const sidebarClass = menuOpen ? 'sidebar' : 'sidebar close';
 
     return (
-        <header className="mycontainer">
+        <header className="container">
             <div className="left">
                 <div className="main-logo">
                     <FontAwesomeIcon icon={faSeedling} className="icon-style" />
@@ -61,7 +61,7 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>
                     </div>
-                    <div className="mycontainer">
+                    <div className="container">
                         <div className="one" onClick={() => scrollIntoView('featured')}>featured</div>
                         <div className="two" onClick={() => scrollIntoView('skills')}>skills</div>
                         <div className="two" onClick={() => scrollIntoView('projects')}>projects</div>

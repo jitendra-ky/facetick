@@ -5,7 +5,7 @@ import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
     return (
-        <div className="mycontainer">
+        <div className="container">
             <div className="footer-top">
                 <div className="footer-section">
                     <h4>Contact Me</h4>

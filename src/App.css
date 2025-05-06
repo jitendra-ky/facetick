@@ -22,13 +22,13 @@ main {
 section {
   padding: 10px;
 
-  > .container {
+  > .mycontainer {
     margin: auto;
     max-width: 1200px;
     padding: 50px 12px;
     overflow: hidden;
   }
-  > .container > .title {
+  > .mycontainer > .title {
     margin-bottom: 100px;
     text-align: center;
     font-variant-caps: all-petite-caps;

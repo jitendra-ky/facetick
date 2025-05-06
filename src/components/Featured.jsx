@@ -6,7 +6,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 function Featured() {
 
     const output = (
-        <div className="container featured">
+        <div className="mycontainer featured">
             <div className="frontend glass">
                 <div className="img-area"><img src="frontend.jpeg" alt="Frontend-certificate" /></div>
                 <div className="txt-area">

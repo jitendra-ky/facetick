@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Featured from './components/Featured';
 import Skill from './components/Skill';
 import Projects from './components/Projects';
+import Contributions from './components/Contributions';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -39,6 +40,7 @@ function App() {
         <section id="featured"><Featured /></section>
         <section id="skills"><Skill /></section>
         <section id='projects'><Projects /></section>
+        <section id="contributions"><Contributions /></section>
       </main>
       <footer id='footer' className='footer'>
         <Footer />

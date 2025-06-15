@@ -78,6 +78,20 @@ section {
   margin: 5px;
   font-size: 12px;
   margin: 5px;
+
+  &.tag-small {
+    display: inline-block;
+  }
+
+  &.clickable {
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+      background-color: #ffffff;
+      box-shadow: 0px 0px 5px rgba(255, 255, 255, 0.5);
+      color: rgb(0, 0, 0);
+    }
+  }
 }
 .tag-primary {
   background-color: #85c0ff;

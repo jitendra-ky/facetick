@@ -18,7 +18,7 @@ const dragonfly = (
             <p>In this project Dragonfly, I am developing a fully functional open-source chatting application using industry best practices</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}>repo <FontAwesomeIcon icon={faGithub} /></div>
+            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}> <FontAwesomeIcon icon={faGithub}/> repo<sup>↗</sup> </div>
         </div>
     </div>
 );
@@ -39,8 +39,8 @@ const portfolio = (
         </div>
         <div className="card-foot">
             <div className="btn" style={{visibility : "hidden"}}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/pmuAUmOw2MU?si=voQrA3wZoS0KQp2P")}><FontAwesomeIcon icon={faPlay} /> video</div>
-            <div className="btn" style={{ visibility: "hidden" }}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://youtu.be/pmuAUmOw2MU?si=voQrA3wZoS0KQp2P")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
+            <div className="btn" style={{ visibility: "hidden" }}><FontAwesomeIcon icon={faExternalLinkAlt} /> doc <sup>↗</sup></div>
         </div>
     </div>
 );
@@ -61,8 +61,8 @@ const sharktodo = (
         </div>
         <div className="card-foot">
             {/* <div className="btn" onClick={() => window.open("https://todo.jitendra.me")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div> */}
-            <div className="btn" onClick={() => window.open("https://youtu.be/rb3MPeSYs4Q?si=0V2sHXaV9bezVHyp")}><FontAwesomeIcon icon={faPlay} /> video</div>
-            <div className="btn" onClick={() => window.open("https://jitendra-ky.notion.site/SharkToDo-66ff51e3c830493b9a7bceadc788d1c0")}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://youtu.be/rb3MPeSYs4Q?si=0V2sHXaV9bezVHyp")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
+            <div className="btn" onClick={() => window.open("https://jitendra-ky.notion.site/SharkToDo-66ff51e3c830493b9a7bceadc788d1c0")}><FontAwesomeIcon icon={faExternalLinkAlt} /> doc<sup>↗</sup></div>
         </div>
     </div>
 );
@@ -82,8 +82,8 @@ const tictaktoe = (
             <p>A simple Tic-Tak-Toe game with some interesting features.</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://tictaktoe.jitendra.me")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/69ikkkNZd9Y?si=z7rzu7fIS3QgC_5f")}><FontAwesomeIcon icon={faPlay} /> video</div>
+            <div className="btn" onClick={() => window.open("https://tictaktoe.jitendra.me")}> use<sup>↗</sup> <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
+            <div className="btn" onClick={() => window.open("https://youtu.be/69ikkkNZd9Y?si=z7rzu7fIS3QgC_5f")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
             <div className="btn" onClick={() => window.open()} style={{ visibility: "hidden" }}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
         </div>
     </div>
@@ -104,9 +104,9 @@ const careerCraftCard = (
             <p>CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications.</p>
         </div>
         <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/ats-optimized-resume")}>repo <FontAwesomeIcon icon={faGithub} /></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/-C5RDNQNT1c?si=bFBaWwzr0Be7fCnd")}><FontAwesomeIcon icon={faPlay} /> video</div>
+            <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}> <FontAwesomeIcon icon={faExternalLinkAlt} /> use<sup>↗</sup></div>
+            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/ats-optimized-resume")}> <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup></div>
+            <div className="btn" onClick={() => window.open("https://youtu.be/-C5RDNQNT1c?si=bFBaWwzr0Be7fCnd")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
         </div>
     </div>
 );
@@ -118,7 +118,6 @@ function Projects() {
             <div className="projects-body">
                 {dragonfly}
                 {portfolio}
-                {tictaktoe}
                 {careerCraftCard}
                 {sharktodo}
             </div>

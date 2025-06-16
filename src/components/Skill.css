@@ -15,10 +15,15 @@
 
   .skill-item {
     /* height: 3.71cm; */
-    width: 6cm;
+    width: 30%;
     margin: 10px;
     border-radius: 10px;
     padding: 5px;
+
+    .tag {
+      font-size: small;
+      padding: 1px;
+    }
   }
 
   .divider {
@@ -47,8 +52,13 @@
   }
 
   .skill-detail {
+    width: 60%;
     padding-top: 10px;
     padding-left: 20px;
+    li {
+      list-style-type: disc;
+      font-size: small;
+    }
   }
 }
 
@@ -64,7 +74,19 @@
     align-items: center;
   }
 
-  .skill-section .divider {
-    width: 100%;
+  .skill-detail {
+    width: 90%;
+  }
+
+  .skill-section {
+    .skill-item {
+      width: 90%;
+    }
+    .divider {
+      width: 100%;
+    }
+    .skill-detail {
+      width: 90%;
+    }
   }
 }

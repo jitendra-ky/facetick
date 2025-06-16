@@ -19,10 +19,7 @@ function Banner() {
           <div className="skill">
             <ul>
               <li> Fullstack Web-Developer <span className='tag'>Advance</span></li>
-              <li> Problem Solving with Python/C++ <span className='tag'>Intermediate</span></li>
-              <li> Data-Science with Numpy & Panda <span className='tag'>Intermediate</span></li>
-              <li> cloud-computing<span className='tag'>beginner</span></li>
-              <li>AI/ML<span className='tag'>beginner</span></li>
+              <li> Data Structure & Algorithms <span className='tag'>Intermediate</span></li>
             </ul>
           </div>
         </div>

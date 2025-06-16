@@ -10,7 +10,7 @@ function Footer() {
                 <div className="footer-section">
                     <h4>Contact Me</h4>
                     <p><FontAwesomeIcon icon={faEnvelope} /> jk69854@gmail.com</p>
-                    <p><FontAwesomeIcon icon={faPhone} /> +91 XXXXX XXXXX</p>
+                    <p><FontAwesomeIcon icon={faPhone} /> +91 63880 92058</p>
                 </div>
 
                 <div className="footer-section">
@@ -42,7 +42,7 @@ function Footer() {
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© jitendra.me 2024. All Rights Reserved.</p>
+                <p>© jitendra.me 2025. All Rights Reserved.</p>
                 <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
             </div>
         </div>

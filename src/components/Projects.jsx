@@ -2,26 +2,116 @@ import './Projects.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { useState, useEffect } from 'react';
 
-const dragonfly = (
-    <div className="card_container glass">
-        <div className="card-head">
-            <img src="static/icons/dragonfly-icon-200.png" alt="jitendra portfolio log" className="card_img" />
-        </div>
-        <div className="card-body">
-            <div className="card-body-top">
-                <div className="tag">full-stack web development</div>
-                <div className='tag tag-primary'>python | django | tornado | html+css+JS </div>
-                <div className="tag tag-success">⭐ Active development </div>
-                <h1>Dragonfly</h1>
+// Custom hook for fetching GitHub repository data
+const useGitHubRepo = (repoUrl, fallbackDescription) => {
+    const [description, setDescription] = useState(fallbackDescription);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (!repoUrl) return;
+
+        const fetchRepoDescription = async () => {
+            setLoading(true);
+            try {
+                // Extract owner/repo from GitHub URL
+                const match = repoUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
+                if (match) {
+                    const [, owner, repo] = match;
+                    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        if (data.description) {
+                            setDescription(data.description);
+                        }
+                    }
+                }
+            } catch (error) {
+                console.log('Failed to fetch repo description:', error);
+                // Keep the fallback description if fetch fails
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchRepoDescription();
+    }, [repoUrl, fallbackDescription]);
+
+    return { description, loading };
+};
+
+// Reusable ProjectCard component
+const ProjectCard = ({ 
+    icon, 
+    title, 
+    badges, 
+    fallbackDescription, 
+    githubUrl, 
+    buttons,
+    useGitHubDescription = false 
+}) => {
+    const { description, loading } = useGitHubRepo(
+        useGitHubDescription ? githubUrl : null, 
+        fallbackDescription
+    );
+
+    return (
+        <div className="card_container glass">
+            <div className="card-head">
+                <img src={icon} alt={`${title} logo`} className="card_img" />
             </div>
-            <p>In this project Dragonfly, I am developing a fully functional open-source chatting application using industry best practices</p>
+            <div className="card-body">
+                <h1>{title}</h1>
+                {badges && (
+                    <div className="card-body-top">
+                        {badges}
+                    </div>
+                )}
+                <p>{loading ? "Loading description..." : description}</p>
+            </div>
+            <div className="card-foot">
+                {buttons}
+            </div>
         </div>
-        <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}> <FontAwesomeIcon icon={faGithub}/> repo<sup>↗</sup> </div>
+    );
+};
+
+const DragonflyCard = () => {
+    const badges = (
+        <>
+            <img alt="Static Badge" src="https://img.shields.io/badge/type-webapp-blue?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/stars/jitendra-ky/dragonfly?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/forks/jitendra-ky/dragonfly?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/issues/jitendra-ky/dragonfly?style=plastic" />
+            {/* <img alt="Static Badge" src="https://img.shields.io/github/issues-pr/jitendra-ky/dragonfly?style=plastic" /> */}
+            {/* <img alt="Static Badge" src="https://img.shields.io/github/languages/top/jitendra-ky/dragonfly?style=plastic" /> */}
+            <img alt="Static Badge" src="https://img.shields.io/github/created-at/jitendra-ky/dragonfly?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/last-commit/jitendra-ky/dragonfly?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/contributors/jitendra-ky/dragonfly?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/badge/status-active-green?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/badge/tech-django%20tornado%20js-blue?style=plastic" />
+        </>
+    );
+
+    const buttons = (
+        <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}>
+            <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup>
         </div>
-    </div>
-);
+    );
+
+    return (
+        <ProjectCard
+            icon="static/icons/dragonfly-icon-200.png"
+            title="Dragonfly: the Chatting app."
+            badges={badges}
+            fallbackDescription="In this project Dragonfly, I am developing a fully functional open-source chatting application using industry best practices"
+            githubUrl="https://github.com/jitendra-ky/dragonfly"
+            buttons={buttons}
+            useGitHubDescription={true}
+        />
+    );
+};
 
 const portfolio = (
     <div className="card_container glass">
@@ -67,28 +157,6 @@ const sharktodo = (
     </div>
 );
 
-const tictaktoe = (
-    <div className="card_container glass">
-        <div className="card-head">
-            <img src="static/icons/tictaktoe2.png" alt="tic-tak-toe logo" className="card_img" />
-        </div>
-        <div className="card-body">
-            <div className="card-body-top">
-                <div className='tag'>Web Game</div>
-                <div className="tag tag-primary">React | JS</div>
-                <div className='tag tag-warning'>Mini-Project</div>
-                <h1>TicTakToe</h1>
-            </div>
-            <p>A simple Tic-Tak-Toe game with some interesting features.</p>
-        </div>
-        <div className="card-foot">
-            <div className="btn" onClick={() => window.open("https://tictaktoe.jitendra.me")}> use<sup>↗</sup> <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/69ikkkNZd9Y?si=z7rzu7fIS3QgC_5f")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
-            <div className="btn" onClick={() => window.open()} style={{ visibility: "hidden" }}>doc <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-        </div>
-    </div>
-);
-
 const careerCraftCard = (
     <div className="card_container glass">
         <div className="card-head">
@@ -116,7 +184,7 @@ function Projects() {
         <div className="projects-section mycontainer">
             <div className='title'>projects</div>
             <div className="projects-body">
-                {dragonfly}
+                <DragonflyCard />
                 {portfolio}
                 {careerCraftCard}
                 {sharktodo}

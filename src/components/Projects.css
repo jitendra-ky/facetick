@@ -9,7 +9,7 @@
     padding: 10px;
 
     .card_container {
-        width: 7cm;
+        width: 270px;
         height: 11.326cm;
         padding: 5px;
         margin: 5px;
@@ -29,12 +29,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    img {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        img {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
 
 
@@ -44,6 +44,10 @@
     }
     .card-body-top{
         margin-bottom: 10px;
+        img {
+            display: inline-block;
+            margin: 1px;
+        }
     }
     .card-body-top h1 {
         text-align: center;

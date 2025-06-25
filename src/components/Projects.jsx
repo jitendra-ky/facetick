@@ -61,8 +61,9 @@ const ProjectCard = ({
             <div className="card-head">
                 <img src={icon} alt={`${title} logo`} className="card_img" />
                 <div className="title">
-                    <h1>Dragonfly</h1>
-                    <p>The Chatting app.</p>
+                    {/* split title by : */}
+                    <h1>{title.split(":")[0]}</h1>
+                    <p>{title.split(":")[1]}</p>
                 </div>
             </div>
             <div className="card-body">
@@ -166,30 +167,40 @@ const sharktodo = (
     </div>
 );
 
-const careerCraftCard = (
-    <div className="card_container glass">
-        <div className="card-head">
-            <img src="static/icons/careercraft.png" alt="CareerCraft logo" className="card_img" />
-            <div className="title">
-                <h1>CareerCraft</h1>
-                <p>The ATS Optimized Resume Builder.</p>
-            </div>
-        </div>
-        <div className="card-body">
-            <div className="card-body-top">
-                <div className="tag">AI-Powered</div>
-                <div className='tag tag-primary'>Streamlit | Python</div>
-                <div className='tag tag-warning'>Mini-Project</div>
-            </div>
-            <p>CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications.</p>
-        </div>
-        <div className="card-foot">
+const CareerCraftCard = () => {
+    const badges = (
+        <>
+            <img alt="Static Badge" src="https://img.shields.io/badge/type-webapp-blue?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/stars/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/forks/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/issues/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/created-at/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/last-commit/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/github/contributors/jitendra-ky/ats-optimized-resume?style=plastic" />
+            <img alt="Static Badge" src="https://img.shields.io/badge/status-active-green?style=plastic" />
+        </>
+    );
+
+    const buttons = (
+        <>
             <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}> <FontAwesomeIcon icon={faExternalLinkAlt} /> use<sup>↗</sup></div>
             <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/ats-optimized-resume")}> <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup></div>
             <div className="btn" onClick={() => window.open("https://youtu.be/-C5RDNQNT1c?si=bFBaWwzr0Be7fCnd")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
-        </div>
-    </div>
-);
+        </>
+    );
+
+    return (
+        <ProjectCard
+            icon="static/icons/careercraft.png"
+            title="CareerCraft:The ATS Optimized Resume Builder."
+            badges={badges}
+            fallbackDescription="CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications."
+            githubUrl="https://github.com/jitendra-ky/ats-optimized-resume"
+            buttons={buttons}
+            useGitHubDescription={true}
+        />
+    );
+};
 
 function Projects() {
     return (
@@ -198,7 +209,7 @@ function Projects() {
             <div className="projects-body">
                 <DragonflyCard />
                 {portfolio}
-                {careerCraftCard}
+                <CareerCraftCard />
                 {sharktodo}
             </div>
         </div>

@@ -25,7 +25,7 @@ function Footer() {
                         <a href="https://twitter.com/Jiten_69854" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faTwitter} />
                         </a>
-                        <a href="https://www.instagram.com/jitendra_322003/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/the.jitendra.me/" target="_blank" rel="noopener noreferrer">
                             <FontAwesomeIcon icon={faInstagram} />
                         </a>
                     </div>

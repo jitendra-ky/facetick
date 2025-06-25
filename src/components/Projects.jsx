@@ -60,9 +60,12 @@ const ProjectCard = ({
         <div className="card_container glass">
             <div className="card-head">
                 <img src={icon} alt={`${title} logo`} className="card_img" />
+                <div className="title">
+                    <h1>Dragonfly</h1>
+                    <p>The Chatting app.</p>
+                </div>
             </div>
             <div className="card-body">
-                <h1>{title}</h1>
                 {badges && (
                     <div className="card-body-top">
                         {badges}
@@ -117,13 +120,16 @@ const portfolio = (
     <div className="card_container glass">
         <div className="card-head">
             <img src="static/icons/portfolio_website.png" alt="jitendra portfolio log" className="card_img" />
+                <div className="title">
+                    <h1>Portfolio</h1>
+                    <p>The Portfolio website.</p>
+                </div>
         </div>
         <div className="card-body">
             <div className="card-body-top">
                 <div className="tag">Frontend web-development</div>
                 <div className='tag tag-primary'>React.JS | html+CSS</div>
                 <div className="tag tag-info">😀 You are on same website</div>
-                <h1>Portfolio</h1>
             </div>
             <p>My portfolio website showcases a diverse range of projects, highlighting my skills and dedication to crafting exceptional digital experiences.</p>
         </div>
@@ -139,13 +145,16 @@ const sharktodo = (
     <div className="card_container glass">
         <div className="card-head">
             <img src="static/icons/sharktodo2.png" alt="sharktodo logo" className="card_img" />
+            <div className="title">
+                <h1>SharkToDo</h1>
+                <p>The To-Do list app.</p>
+            </div>
         </div>
         <div className="card-body">
             <div className="card-body-top">
                 <div className="tag">full-stack web development</div>
                 <div className='tag tag-primary'>python | django | JS | React</div>
                 <div className='tag tag-danger'>No longer maintained</div>
-                <h1>SharkToDo</h1>
             </div>
             <p>SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.</p>
         </div>
@@ -161,13 +170,16 @@ const careerCraftCard = (
     <div className="card_container glass">
         <div className="card-head">
             <img src="static/icons/careercraft.png" alt="CareerCraft logo" className="card_img" />
+            <div className="title">
+                <h1>CareerCraft</h1>
+                <p>The ATS Optimized Resume Builder.</p>
+            </div>
         </div>
         <div className="card-body">
             <div className="card-body-top">
                 <div className="tag">AI-Powered</div>
                 <div className='tag tag-primary'>Streamlit | Python</div>
                 <div className='tag tag-warning'>Mini-Project</div>
-                <h1>CareerCraft</h1>
             </div>
             <p>CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications.</p>
         </div>

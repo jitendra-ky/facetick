@@ -1,4 +1,4 @@
-# [www.jitendra.me](https://www.jitendra.me)
+# [www.jitendraky.tech](https://www.jitendraky.tech)
 
 # Portfolio Website - README
 

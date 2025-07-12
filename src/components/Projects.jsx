@@ -3,214 +3,218 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useState, useEffect } from 'react';
+import fallbackProjects from '../data/fallbackProjects.json';
 
-// Custom hook for fetching GitHub repository data
-const useGitHubRepo = (repoUrl, fallbackDescription) => {
-    const [description, setDescription] = useState(fallbackDescription);
-    const [loading, setLoading] = useState(false);
+// Custom hook for fetching GitHub repositories with topic (with localStorage cache + fallbacks)
+const useGitHubProjects = () => {
+    const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    const CACHE_KEY = 'github-projects-jitendraky-tech';
+    const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
 
     useEffect(() => {
-        if (!repoUrl) return;
-
-        const fetchRepoDescription = async () => {
+        const fetchGitHubProjects = async () => {
             setLoading(true);
+            
+            // Check for cached data first
+            let cachedData = null;
+            let isCacheValid = false;
+            
             try {
-                // Extract owner/repo from GitHub URL
-                const match = repoUrl.match(/github\.com\/([^\/]+)\/([^\/]+)/);
-                if (match) {
-                    const [, owner, repo] = match;
-                    const response = await fetch(`https://api.github.com/repos/${owner}/${repo}`);
-                    if (response.ok) {
-                        const data = await response.json();
-                        if (data.description) {
-                            setDescription(data.description);
-                        }
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    const { data, timestamp } = JSON.parse(cached);
+                    const now = new Date().getTime();
+                    cachedData = data;
+                    isCacheValid = (now - timestamp < CACHE_DURATION);
+                    
+                    // If cache is still valid, use cached data
+                    if (isCacheValid) {
+                        console.log('Using cached GitHub projects data');
+                        setProjects(data);
+                        setLoading(false);
+                        return;
+                    } else {
+                        console.log('Cache expired, fetching fresh data');
                     }
                 }
-            } catch (error) {
-                console.log('Failed to fetch repo description:', error);
-                // Keep the fallback description if fetch fails
+            } catch (cacheError) {
+                console.log('Cache read error, fetching fresh data:', cacheError);
+            }
+
+            // Fetch fresh data from GitHub API
+            try {
+                console.log('Fetching projects from GitHub API...');
+                const response = await fetch(
+                    'https://api.github.com/search/repositories?q=user:jitendra-ky+topic:jitendraky-tech&sort=updated&order=desc'
+                );
+                if (response.ok) {
+                    const apiData = await response.json();
+                    const projects = apiData.items || [];
+                    
+                    // Cache the fresh data
+                    const cacheData = {
+                        data: projects,
+                        timestamp: new Date().getTime()
+                    };
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+                    console.log('Projects cached successfully');
+                    
+                    setProjects(projects);
+                } else {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+            } catch (apiError) {
+                console.error('GitHub API request failed:', apiError);
+                
+                // Fallback 1: Use stale cache if available (no matter how old)
+                if (cachedData && cachedData.length > 0) {
+                    console.log('API failed, using stale cached data as fallback');
+                    setProjects(cachedData);
+                } 
+                // Fallback 2: Use dummy data from JSON file as last resort
+                else {
+                    console.log('API failed and no cache available, using fallback data from JSON file');
+                    console.log('Fallback projects:', fallbackProjects);
+                    console.log('Number of fallback projects:', fallbackProjects.length);
+                    setProjects(fallbackProjects);
+                }
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchRepoDescription();
-    }, [repoUrl, fallbackDescription]);
+        fetchGitHubProjects();
+    }, []);
 
-    return { description, loading };
+    return { projects, loading };
 };
 
-// Reusable ProjectCard component
-const ProjectCard = ({ 
-    icon, 
-    title, 
-    badges, 
-    fallbackDescription, 
-    githubUrl, 
-    buttons,
-    useGitHubDescription = false 
-}) => {
-    const { description, loading } = useGitHubRepo(
-        useGitHubDescription ? githubUrl : null, 
-        fallbackDescription
+// Dynamic GitHub Project Card component
+const DynamicProjectCard = ({ repo }) => {
+    // Get primary icon URL from repository
+    const getProjectIcon = (repo) => {
+        // Always try repository icon first for all repos
+        return `https://raw.githubusercontent.com/${repo.full_name}/main/.github/portfolio-icon-200.png`;
+    };
+
+    // Get repository-specific fallback icon
+    const getRepositoryFallbackIcon = (repoName) => {
+        const repoFallbacks = {
+            'dragonfly': 'static/icons/dragonfly-icon-200.png',
+            'ats-optimized-resume': 'static/icons/careercraft.png',
+            'sharktodo': 'static/icons/sharktodo2.png',
+            'facetick': 'static/icons/portfolio_website.png'
+        };
+        return repoFallbacks[repoName];
+    };
+
+    const handleIconError = (e) => {
+        // First try repository-specific fallback
+        const repoFallback = getRepositoryFallbackIcon(repo.name);
+        if (repoFallback && e.target.src !== repoFallback) {
+            e.target.src = repoFallback;
+            return;
+        }
+        
+        // If repository fallback also fails, use general fallback
+        if (e.target.src !== 'static/icons/portfolio_website.png') {
+            e.target.src = 'static/icons/portfolio_website.png';
+        }
+    };
+
+    // Generate badges for dynamic projects
+    const generateBadges = (repo) => (
+        <>
+            <img alt="Static Badge" src={`https://img.shields.io/badge/type-${repo.private ? 'private' : 'public'}-${repo.private ? 'red' : 'blue'}?style=plastic`} />
+            <img alt="Static Badge" src={`https://img.shields.io/github/stars/${repo.full_name}?style=plastic`} />
+            <img alt="Static Badge" src={`https://img.shields.io/github/forks/${repo.full_name}?style=plastic`} />
+            <img alt="Static Badge" src={`https://img.shields.io/github/issues/${repo.full_name}?style=plastic`} />
+            <img alt="Static Badge" src={`https://img.shields.io/github/last-commit/${repo.full_name}?style=plastic`} />
+            {repo.language && (
+                <img alt="Static Badge" src={`https://img.shields.io/badge/language-${repo.language.toLowerCase()}-orange?style=plastic`} />
+            )}
+            <img alt="Static Badge" src={`https://img.shields.io/badge/status-active-green?style=plastic`} />
+        </>
+    );
+
+    // Generate buttons for dynamic projects
+    const generateButtons = (repo) => (
+        <>
+            {repo.homepage && (
+                <div className="btn" onClick={() => window.open(repo.homepage)}>
+                    <FontAwesomeIcon icon={faExternalLinkAlt} /> use<sup>↗</sup>
+                </div>
+            )}
+            <div className="btn" onClick={() => window.open(repo.html_url)}>
+                <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup>
+            </div>
+        </>
     );
 
     return (
         <div className="card_container glass">
             <div className="card-head">
-                <img src={icon} alt={`${title} logo`} className="card_img" />
+                <img 
+                    src={getProjectIcon(repo)} 
+                    alt={`${repo.name} logo`} 
+                    className="card_img"
+                    onError={handleIconError}
+                />
                 <div className="title">
-                    {/* split title by : */}
-                    <h1>{title.split(":")[0]}</h1>
-                    <p>{title.split(":")[1]}</p>
+                    <h1>{repo.name}</h1>
+                    <p>{repo.description ? repo.description.substring(0, 40) + '...' : 'GitHub Repository'}</p>
                 </div>
             </div>
             <div className="card-body">
-                {badges && (
-                    <div className="card-body-top">
-                        {badges}
-                    </div>
-                )}
-                <p>{loading ? "Loading description..." : description}</p>
+                <div className="card-body-top">
+                    {generateBadges(repo)}
+                </div>
+                <p>{repo.description || 'No description available for this repository.'}</p>
             </div>
             <div className="card-foot">
-                {buttons}
+                {generateButtons(repo)}
             </div>
         </div>
-    );
-};
-
-const DragonflyCard = () => {
-    const badges = (
-        <>
-            <img alt="Static Badge" src="https://img.shields.io/badge/type-webapp-blue?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/stars/jitendra-ky/dragonfly?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/forks/jitendra-ky/dragonfly?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/issues/jitendra-ky/dragonfly?style=plastic" />
-            {/* <img alt="Static Badge" src="https://img.shields.io/github/issues-pr/jitendra-ky/dragonfly?style=plastic" /> */}
-            {/* <img alt="Static Badge" src="https://img.shields.io/github/languages/top/jitendra-ky/dragonfly?style=plastic" /> */}
-            <img alt="Static Badge" src="https://img.shields.io/github/created-at/jitendra-ky/dragonfly?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/last-commit/jitendra-ky/dragonfly?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/contributors/jitendra-ky/dragonfly?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/badge/status-active-green?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/badge/tech-django%20tornado%20js-blue?style=plastic" />
-        </>
-    );
-
-    const buttons = (
-        <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/dragonfly")}>
-            <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup>
-        </div>
-    );
-
-    return (
-        <ProjectCard
-            icon="static/icons/dragonfly-icon-200.png"
-            title="Dragonfly: the Chatting app."
-            badges={badges}
-            fallbackDescription="In this project Dragonfly, I am developing a fully functional open-source chatting application using industry best practices"
-            githubUrl="https://github.com/jitendra-ky/dragonfly"
-            buttons={buttons}
-            useGitHubDescription={true}
-        />
-    );
-};
-
-const portfolio = (
-    <div className="card_container glass">
-        <div className="card-head">
-            <img src="static/icons/portfolio_website.png" alt="jitendra portfolio log" className="card_img" />
-                <div className="title">
-                    <h1>Portfolio</h1>
-                    <p>The Portfolio website.</p>
-                </div>
-        </div>
-        <div className="card-body">
-            <div className="card-body-top">
-                <div className="tag">Frontend web-development</div>
-                <div className='tag tag-primary'>React.JS | html+CSS</div>
-                <div className="tag tag-info">😀 You are on same website</div>
-            </div>
-            <p>My portfolio website showcases a diverse range of projects, highlighting my skills and dedication to crafting exceptional digital experiences.</p>
-        </div>
-        <div className="card-foot">
-            <div className="btn" style={{visibility : "hidden"}}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/pmuAUmOw2MU?si=voQrA3wZoS0KQp2P")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
-            <div className="btn" style={{ visibility: "hidden" }}><FontAwesomeIcon icon={faExternalLinkAlt} /> doc <sup>↗</sup></div>
-        </div>
-    </div>
-);
-
-const sharktodo = (
-    <div className="card_container glass">
-        <div className="card-head">
-            <img src="static/icons/sharktodo2.png" alt="sharktodo logo" className="card_img" />
-            <div className="title">
-                <h1>SharkToDo</h1>
-                <p>The To-Do list app.</p>
-            </div>
-        </div>
-        <div className="card-body">
-            <div className="card-body-top">
-                <div className="tag">full-stack web development</div>
-                <div className='tag tag-primary'>python | django | JS | React</div>
-                <div className='tag tag-danger'>No longer maintained</div>
-            </div>
-            <p>SharkToDo is a React-based to-do list application designed to help you effortlessly manage your tasks.</p>
-        </div>
-        <div className="card-foot">
-            {/* <div className="btn" onClick={() => window.open("https://todo.jitendra.me")}>use <FontAwesomeIcon icon={faExternalLinkAlt} /></div> */}
-            <div className="btn" onClick={() => window.open("https://youtu.be/rb3MPeSYs4Q?si=0V2sHXaV9bezVHyp")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
-            <div className="btn" onClick={() => window.open("https://jitendra-ky.notion.site/SharkToDo-66ff51e3c830493b9a7bceadc788d1c0")}><FontAwesomeIcon icon={faExternalLinkAlt} /> doc<sup>↗</sup></div>
-        </div>
-    </div>
-);
-
-const CareerCraftCard = () => {
-    const badges = (
-        <>
-            <img alt="Static Badge" src="https://img.shields.io/badge/type-webapp-blue?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/stars/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/forks/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/issues/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/created-at/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/last-commit/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/github/contributors/jitendra-ky/ats-optimized-resume?style=plastic" />
-            <img alt="Static Badge" src="https://img.shields.io/badge/status-active-green?style=plastic" />
-        </>
-    );
-
-    const buttons = (
-        <>
-            <div className="btn" onClick={() => window.open("https://career-craft.azurewebsites.net/")}> <FontAwesomeIcon icon={faExternalLinkAlt} /> use<sup>↗</sup></div>
-            <div className="btn" onClick={() => window.open("https://github.com/jitendra-ky/ats-optimized-resume")}> <FontAwesomeIcon icon={faGithub} /> repo<sup>↗</sup></div>
-            <div className="btn" onClick={() => window.open("https://youtu.be/-C5RDNQNT1c?si=bFBaWwzr0Be7fCnd")}><FontAwesomeIcon icon={faPlay} /> video<sup>↗</sup></div>
-        </>
-    );
-
-    return (
-        <ProjectCard
-            icon="static/icons/careercraft.png"
-            title="CareerCraft:The ATS Optimized Resume Builder."
-            badges={badges}
-            fallbackDescription="CareerCraft is a Streamlit-based application that leverages Google Gemini to optimize your resume for ATS and job applications."
-            githubUrl="https://github.com/jitendra-ky/ats-optimized-resume"
-            buttons={buttons}
-            useGitHubDescription={true}
-        />
     );
 };
 
 function Projects() {
+    const { projects, loading } = useGitHubProjects();
+
+    // Debug logging
+    console.log('Projects component render:', { projects, loading, projectsLength: projects.length });
+
+    if (loading) {
+        return (
+            <div className="projects-section mycontainer">
+                <div className='title'>projects</div>
+                <div className="projects-body">
+                    <div className="card_container glass">
+                        <div className="card-body">
+                            <p>Loading projects from GitHub...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="projects-section mycontainer">
             <div className='title'>projects</div>
             <div className="projects-body">
-                <DragonflyCard />
-                {portfolio}
-                <CareerCraftCard />
-                {sharktodo}
+                {projects.map((repo) => (
+                    <DynamicProjectCard key={repo.id} repo={repo} />
+                ))}
+                {projects.length === 0 && (
+                    <div className="card_container glass">
+                        <div className="card-body">
+                            <p>No projects found with topic "jitendraky-tech"</p>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

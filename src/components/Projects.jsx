@@ -3,12 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useState, useEffect } from 'react';
+import fallbackProjects from '../data/fallbackProjects.json';
 
-// Custom hook for fetching GitHub repositories with topic (with localStorage cache)
+// Custom hook for fetching GitHub repositories with topic (with localStorage cache + fallbacks)
 const useGitHubProjects = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     const CACHE_KEY = 'github-projects-jitendraky-tech';
     const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
@@ -18,14 +18,19 @@ const useGitHubProjects = () => {
             setLoading(true);
             
             // Check for cached data first
+            let cachedData = null;
+            let isCacheValid = false;
+            
             try {
-                const cachedData = localStorage.getItem(CACHE_KEY);
-                if (cachedData) {
-                    const { data, timestamp } = JSON.parse(cachedData);
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    const { data, timestamp } = JSON.parse(cached);
                     const now = new Date().getTime();
+                    cachedData = data;
+                    isCacheValid = (now - timestamp < CACHE_DURATION);
                     
                     // If cache is still valid, use cached data
-                    if (now - timestamp < CACHE_DURATION) {
+                    if (isCacheValid) {
                         console.log('Using cached GitHub projects data');
                         setProjects(data);
                         setLoading(false);
@@ -58,11 +63,23 @@ const useGitHubProjects = () => {
                     
                     setProjects(projects);
                 } else {
-                    throw new Error('Failed to fetch projects');
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
                 }
-            } catch (error) {
-                console.error('Error fetching GitHub projects:', error);
-                setError(error.message);
+            } catch (apiError) {
+                console.error('GitHub API request failed:', apiError);
+                
+                // Fallback 1: Use stale cache if available (no matter how old)
+                if (cachedData && cachedData.length > 0) {
+                    console.log('API failed, using stale cached data as fallback');
+                    setProjects(cachedData);
+                } 
+                // Fallback 2: Use dummy data from JSON file as last resort
+                else {
+                    console.log('API failed and no cache available, using fallback data from JSON file');
+                    console.log('Fallback projects:', fallbackProjects);
+                    console.log('Number of fallback projects:', fallbackProjects.length);
+                    setProjects(fallbackProjects);
+                }
             } finally {
                 setLoading(false);
             }
@@ -71,7 +88,7 @@ const useGitHubProjects = () => {
         fetchGitHubProjects();
     }, []);
 
-    return { projects, loading, error };
+    return { projects, loading };
 };
 
 // Dynamic GitHub Project Card component
@@ -140,7 +157,10 @@ const DynamicProjectCard = ({ repo }) => {
 };
 
 function Projects() {
-    const { projects, loading, error } = useGitHubProjects();
+    const { projects, loading } = useGitHubProjects();
+
+    // Debug logging
+    console.log('Projects component render:', { projects, loading, projectsLength: projects.length });
 
     if (loading) {
         return (
@@ -150,21 +170,6 @@ function Projects() {
                     <div className="card_container glass">
                         <div className="card-body">
                             <p>Loading projects from GitHub...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-
-    if (error) {
-        return (
-            <div className="projects-section mycontainer">
-                <div className='title'>projects</div>
-                <div className="projects-body">
-                    <div className="card_container glass">
-                        <div className="card-body">
-                            <p>Error loading projects: {error}</p>
                         </div>
                     </div>
                 </div>

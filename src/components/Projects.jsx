@@ -4,22 +4,59 @@ import { faExternalLinkAlt, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { useState, useEffect } from 'react';
 
-// Custom hook for fetching GitHub repositories with topic
+// Custom hook for fetching GitHub repositories with topic (with localStorage cache)
 const useGitHubProjects = () => {
     const [projects, setProjects] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
+    const CACHE_KEY = 'github-projects-jitendraky-tech';
+    const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes in milliseconds
+
     useEffect(() => {
         const fetchGitHubProjects = async () => {
             setLoading(true);
+            
+            // Check for cached data first
             try {
+                const cachedData = localStorage.getItem(CACHE_KEY);
+                if (cachedData) {
+                    const { data, timestamp } = JSON.parse(cachedData);
+                    const now = new Date().getTime();
+                    
+                    // If cache is still valid, use cached data
+                    if (now - timestamp < CACHE_DURATION) {
+                        console.log('Using cached GitHub projects data');
+                        setProjects(data);
+                        setLoading(false);
+                        return;
+                    } else {
+                        console.log('Cache expired, fetching fresh data');
+                    }
+                }
+            } catch (cacheError) {
+                console.log('Cache read error, fetching fresh data:', cacheError);
+            }
+
+            // Fetch fresh data from GitHub API
+            try {
+                console.log('Fetching projects from GitHub API...');
                 const response = await fetch(
                     'https://api.github.com/search/repositories?q=user:jitendra-ky+topic:jitendraky-tech&sort=updated&order=desc'
                 );
                 if (response.ok) {
-                    const data = await response.json();
-                    setProjects(data.items || []);
+                    const apiData = await response.json();
+                    const projects = apiData.items || [];
+                    
+                    // Cache the fresh data
+                    const cacheData = {
+                        data: projects,
+                        timestamp: new Date().getTime()
+                    };
+                    localStorage.setItem(CACHE_KEY, JSON.stringify(cacheData));
+                    console.log('Projects cached successfully');
+                    
+                    setProjects(projects);
                 } else {
                     throw new Error('Failed to fetch projects');
                 }

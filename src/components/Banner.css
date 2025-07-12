@@ -1,4 +1,3 @@
-
 .banner {
     min-height: 500px;
     display: flex;
@@ -30,6 +29,14 @@
 
 .banner-txt ul {
     list-style-position: inside;
+}
+
+.banner-txt, .banner-txt * {
+    cursor: default !important;
+}
+
+.banner-txt a {
+    cursor: pointer !important;
 }
 
 
@@ -103,29 +110,57 @@
 /* test area style */
 .txt-holder {
     width: 400px;
+    padding: 0;
+    margin: 0;
 }
 
 .txt-holder>div {
-    padding: 10px 0px;
+    padding: 4px 0px;
 }
 
 .txt-holder .hi {
     font-size: medium;
+    margin-bottom: 2px;
 }
 
 .txt-holder .name {
-    font-size: 4em;
+    font-size: 3em;
     font-weight: bold;
+    margin-bottom: 4px;
 }
 
 .txt-holder .edu {
     font-size: large;
+    margin-bottom: 6px;
 }
 
 .txt-holder .desc {
     font-size: small;
 }
 
+.skill {
+    margin-bottom: 10px;
+}
+
+.space-y-4 > * + * {
+    margin-top: 6px !important;
+}
+
+.flex.items-center.justify-between {
+    min-height: 28px;
+}
+
+.flex.gap-1 {
+    gap: 3px !important;
+}
+
+.flex.gap-4 {
+    gap: 10px !important;
+}
+
+.inline-flex.items-center {
+    padding: 6px 12px !important;
+}
 
 @media (max-width: 800px) {
     .banner {

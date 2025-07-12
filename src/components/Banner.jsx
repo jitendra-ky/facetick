@@ -16,11 +16,29 @@ function Banner() {
           <div className="hi">Hi I'm</div>
           <div className="name">Jitendra K.Y.</div>
           <div className="edu">B.Tech CSE & AI, IET Lucknow (2023-27)</div>
-          <div className="skill">
-            <ul>
-              <li> Fullstack Web-Developer <span className='tag'>Advance</span></li>
-              <li> Data Structure & Algorithms <span className='tag'>Intermediate</span></li>
-            </ul>
+          <div className="skill mb-6">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-gray-200 font-medium">Fullstack Web-Developer</span>
+                <div className="flex gap-1">
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-yellow-400 text-lg">★</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-gray-200 font-medium">Data Structure & Algorithms</span>
+                <div className="flex gap-1">
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-yellow-400 text-lg">★</span>
+                  <span className="text-gray-500 text-lg">★</span>
+                  <span className="text-gray-500 text-lg">★</span>
+                  <span className="text-gray-500 text-lg">★</span>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="flex gap-4 mt-5 flex-wrap">
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white px-5 py-3 rounded-full font-semibold text-sm shadow-lg">

@@ -93,16 +93,35 @@ const useGitHubProjects = () => {
 
 // Dynamic GitHub Project Card component
 const DynamicProjectCard = ({ repo }) => {
-    // Get icon from repository or use fallback
+    // Get primary icon URL from repository
     const getProjectIcon = (repo) => {
-        // Try to get icon from repository first
-        const repoIconUrl = `https://raw.githubusercontent.com/${repo.full_name}/main/.github/portfolio-icon-200.png`;
-        return repoIconUrl;
+        // Always try repository icon first for all repos
+        return `https://raw.githubusercontent.com/${repo.full_name}/main/.github/portfolio-icon-200.png`;
+    };
+
+    // Get repository-specific fallback icon
+    const getRepositoryFallbackIcon = (repoName) => {
+        const repoFallbacks = {
+            'dragonfly': 'static/icons/dragonfly-icon-200.png',
+            'ats-optimized-resume': 'static/icons/careercraft.png',
+            'sharktodo': 'static/icons/sharktodo2.png',
+            'facetick': 'static/icons/portfolio_website.png'
+        };
+        return repoFallbacks[repoName];
     };
 
     const handleIconError = (e) => {
-        // On error, show error icon
-        e.target.src = 'static/icons/portfolio_website.png'; // Fallback icon
+        // First try repository-specific fallback
+        const repoFallback = getRepositoryFallbackIcon(repo.name);
+        if (repoFallback && e.target.src !== repoFallback) {
+            e.target.src = repoFallback;
+            return;
+        }
+        
+        // If repository fallback also fails, use general fallback
+        if (e.target.src !== 'static/icons/portfolio_website.png') {
+            e.target.src = 'static/icons/portfolio_website.png';
+        }
     };
 
     // Generate badges for dynamic projects

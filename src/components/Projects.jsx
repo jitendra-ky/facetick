@@ -93,16 +93,16 @@ const useGitHubProjects = () => {
 
 // Dynamic GitHub Project Card component
 const DynamicProjectCard = ({ repo }) => {
-    // Get icon from static folder or use default
-    const getProjectIcon = (repoName) => {
-        // Map specific repositories to their icons
-        const iconMap = {
-            'dragonfly': 'static/icons/dragonfly-icon-200.png',
-            'ats-optimized-resume': 'static/icons/careercraft.png',
-            'sharktodo': 'static/icons/sharktodo2.png',
-            'facetick': 'static/icons/portfolio_website.png'
-        };
-        return iconMap[repoName] || 'static/icons/portfolio_website.png'; // Default icon
+    // Get icon from repository or use fallback
+    const getProjectIcon = (repo) => {
+        // Try to get icon from repository first
+        const repoIconUrl = `https://raw.githubusercontent.com/${repo.full_name}/main/.github/portfolio-icon-200.png`;
+        return repoIconUrl;
+    };
+
+    const handleIconError = (e) => {
+        // On error, show error icon
+        e.target.src = 'static/icons/portfolio_website.png'; // Fallback icon
     };
 
     // Generate badges for dynamic projects
@@ -137,7 +137,12 @@ const DynamicProjectCard = ({ repo }) => {
     return (
         <div className="card_container glass">
             <div className="card-head">
-                <img src={getProjectIcon(repo.name)} alt={`${repo.name} logo`} className="card_img" />
+                <img 
+                    src={getProjectIcon(repo)} 
+                    alt={`${repo.name} logo`} 
+                    className="card_img"
+                    onError={handleIconError}
+                />
                 <div className="title">
                     <h1>{repo.name}</h1>
                     <p>{repo.description ? repo.description.substring(0, 40) + '...' : 'GitHub Repository'}</p>

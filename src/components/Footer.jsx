@@ -37,12 +37,12 @@ function Footer() {
                         <li><a href="https://darkcloud.jitendra.me/">DarkCloud</a></li>
                         <li><a href="https://todo.jitendra.me/">SharkToDo</a></li>
                         <li><a href="https://tictaktoe.jitendra.me/">TicTakToe</a></li>
-                        <li><a href="https://jitendra.me/" target="_blank" rel="noopener noreferrer">jitendra.me</a></li>
+                        <li><a href="https://jitendraky.tech/" target="_blank" rel="noopener noreferrer">jitendraky.tech</a></li>
                     </ul>
                 </div>
             </div>
             <div className="footer-bottom">
-                <p>© jitendra.me 2025. All Rights Reserved.</p>
+                <p>© jitendraky.tech 2025. All Rights Reserved.</p>
                 <p><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
             </div>
         </div>

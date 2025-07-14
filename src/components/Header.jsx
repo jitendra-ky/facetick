@@ -30,7 +30,7 @@ function Header({ scrollIntoView, onToggleDarkMode, isDarkMode }) {
                 <div className="main-logo">
                     <FontAwesomeIcon icon={faSeedling} className="icon-style" />
                 </div>
-                <div className="branding">jitendra.me</div>
+                <div className="branding">jitendraky.tech</div>
             </div>
             <div className="center">
                 <div className="one" onClick={() => scrollIntoView('featured')}>featured</div>

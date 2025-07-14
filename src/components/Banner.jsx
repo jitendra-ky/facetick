@@ -6,7 +6,7 @@ function Banner() {
       <div className="banner-image">
         <div className="holder glass">
           <div className="image">
-            <img src="jiten.png" alt="jitendra k.y , jitendra.me" />
+            <img src="jiten.png" alt="jitendra k.y , jitendraky.tech" />
           </div>
         </div>
         {/* <div className="lavitate one glass">Welcome</div> */}
